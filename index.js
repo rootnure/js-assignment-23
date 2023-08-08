@@ -41,11 +41,30 @@ function sortMaker(arr) {
     return arr;
 }
 
+function findAddress(obj) {
+    if(Array.isArray(obj) || typeof obj !== 'object') {
+        return 'Please provide an object';
+    }
+    const keys = Object.keys(obj);
+    const address = [];
+    const addressParts = ['street', 'house', 'society'];
+    for(const part of addressParts) {
+        if(keys.includes(part)){
+            address.push(obj[part]);
+            continue;
+        }
+        address.push('__');
+    }
+    const fullAddress = address.join(',');
+    return fullAddress;
+
+}
 
 
 
 // test case
 
-// console.log(cubeNumber("4")); // 1
+// console.log(findAddress({street:10,society:"Earth Perfect",house:"15A"})); // 4
+// console.log(sortMaker([1, 2])); // 3
 // console.log(matchFinder('Peter Parker','10')); // 2
-console.log(sortMaker([1, 2]));
+// console.log(cubeNumber("4")); // 1
