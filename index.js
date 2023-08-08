@@ -26,11 +26,11 @@ function sortMaker(arr) {
     else if (typeof arr[0] !== 'number' || typeof arr[1] !== 'number') {
         return 'Both element must be in number format';
     }
-    else if (arr[0] === arr[1]) {
-        return 'equal';
-    }
     else if (arr[0] <= 0 || arr[1] <= 0) {
         return 'Invalid Input';
+    }
+    else if (arr[0] === arr[1]) {
+        return 'equal';
     }
     else if (arr[1] > arr[0]) {
         const temp = arr[0];
