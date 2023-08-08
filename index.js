@@ -60,10 +60,32 @@ function findAddress(obj) {
 
 }
 
+function canPay(changeArray, totalDue) {
+    if(!Array.isArray(changeArray)) {
+        return 'Please provide an array as first parameter';
+    }
+    else if(changeArray.length === 0) {
+        return 'Array cannot be empty';
+    }
+    else if (typeof totalDue !== 'number' || totalDue <= 0) {
+        return 'Please provide a positive number as second parameter';
+    }
+    let changeSum = 0;
+    for(const change of changeArray) {
+        if(typeof change !== 'number' || change < 0) {
+            return 'All the values of array must be positive numbers';
+        }
+        changeSum += change;
+    }
+    if(changeSum >= totalDue) {
+        return true;
+    }
+    return false;
+}
 
 
 // test case
-
+// console.log(canPay([1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1], 10)); // 5
 // console.log(findAddress({street:10,society:"Earth Perfect",house:"15A"})); // 4
 // console.log(sortMaker([1, 2])); // 3
 // console.log(matchFinder('Peter Parker','10')); // 2
