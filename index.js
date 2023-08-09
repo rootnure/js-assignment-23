@@ -2,6 +2,9 @@ function cubeNumber(number) {
     if (typeof number !== 'number') {
         return 'Please provide a number';
     }
+    else if(number <= 0) {
+        return 'Please give a positive number';
+    }
     const cube = number * number * number;
     return cube;
 }
